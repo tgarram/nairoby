@@ -156,7 +156,17 @@ only animate in once they've intersected the viewport, so a screenshot
 taken immediately after page load will show blank/invisible sections that
 haven't been scrolled past yet.
 
+## Deployment
+
+`.github/workflows/deploy-pages.yml` deploys the repo root straight to
+GitHub Pages (no build step — it just uploads the static files) on every
+push to `main` or `claude/claude-md-docs-aptw0j`, or via manual
+`workflow_dispatch`. This requires GitHub Pages to be enabled once in the
+repo's **Settings → Pages → Build and deployment → Source: GitHub
+Actions** (a one-time manual setting GitHub doesn't expose via the API
+used here).
+
 ## Git workflow
 
-Standard branch + commit + push; no special release process or CI is
-configured in this repo yet.
+Standard branch + commit + push; no other release process or CI is
+configured in this repo.
