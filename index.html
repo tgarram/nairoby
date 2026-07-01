@@ -235,44 +235,51 @@
 
     <!-- 8. Contacto -->
     <section class="contacto" id="contacto">
-      <div class="container narrow">
+      <div class="container">
         <p class="eyebrow center reveal">Contacto</p>
         <h2 class="section-title center reveal">Escríbenos o visítanos</h2>
 
-        <div class="contacto-grid">
-          <div class="contacto-item reveal">
-            <svg class="contacto-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-mail"></use></svg>
-            <h3>Correo electrónico</h3>
-            <a href="mailto:nairoby_armas@yahoo.com" class="link-underline">nairoby_armas@yahoo.com</a>
+        <div class="contacto-columns">
+          <div class="contacto-col reveal">
+            <form class="contact-form" id="contact-form">
+              <div class="form-field">
+                <label for="cf-name">Nombre</label>
+                <input type="text" id="cf-name" name="name" autocomplete="name" required />
+              </div>
+              <div class="form-field">
+                <label for="cf-email">Email</label>
+                <input type="email" id="cf-email" name="email" autocomplete="email" required />
+              </div>
+              <div class="form-field">
+                <label for="cf-message">Mensaje</label>
+                <textarea id="cf-message" name="message" rows="4" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+            </form>
           </div>
-          <div class="contacto-item reveal">
-            <svg class="contacto-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-pin"></use></svg>
-            <h3>Ubicación</h3>
-            <p>Avenida Manuel Velázquez Cabrera, 110<br />Puerto del Rosario, Fuerteventura</p>
-            <a
-              href="https://www.google.com/maps/search/?api=1&query=Avenida+Manuel+Vel%C3%A1zquez+Cabrera+110%2C+Puerto+del+Rosario%2C+Fuerteventura"
-              class="link-underline"
-              target="_blank"
-              rel="noopener"
-            >Ver en Google Maps</a>
+
+          <div class="contacto-col reveal">
+            <div class="contacto-location">
+              <svg class="contacto-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-pin"></use></svg>
+              <h3>Ubicación</h3>
+              <p>Avenida Manuel Velázquez Cabrera, 110<br />Puerto del Rosario, Fuerteventura</p>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Avenida+Manuel+Vel%C3%A1zquez+Cabrera+110%2C+Puerto+del+Rosario%2C+Fuerteventura"
+                class="link-underline"
+                target="_blank"
+                rel="noopener"
+              >Ver en Google Maps</a>
+            </div>
+            <div class="contacto-map">
+              <iframe
+                src="https://www.google.com/maps?q=Avenida+Manuel+Vel%C3%A1zquez+Cabrera+110,+Puerto+del+Rosario,+Fuerteventura&output=embed"
+                title="Ubicación de NAIROBY en Puerto del Rosario"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
           </div>
         </div>
-
-        <form class="contact-form reveal" id="contact-form">
-          <div class="form-field">
-            <label for="cf-name">Nombre</label>
-            <input type="text" id="cf-name" name="name" autocomplete="name" required />
-          </div>
-          <div class="form-field">
-            <label for="cf-email">Email</label>
-            <input type="email" id="cf-email" name="email" autocomplete="email" required />
-          </div>
-          <div class="form-field">
-            <label for="cf-message">Mensaje</label>
-            <textarea id="cf-message" name="message" rows="4" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Enviar mensaje</button>
-        </form>
       </div>
     </section>
 

@@ -157,9 +157,16 @@ section, follow this pattern: `eyebrow` → `section-title` → content,
 wrapped in `.container` (and `.narrow` for text-only sections), with a
 `.reveal` class on elements that should fade in on scroll.
 
-**`#contacto`** holds the email/location cards plus a `mailto:`-based
-contact form (see "JS behavior" below) — it's the one section allowed a
-form element, since the rest of the site funnels to WhatsApp.
+**`#contacto`** is a two-column `.contacto-columns` layout: the
+`mailto:`-based contact form (see "JS behavior" below) on the left,
+location (address + Google Maps link + embedded map iframe) on the
+right, stacking to one column under 860px. There's no separate email
+card — the form covers that need. The map is a no-API-key
+`https://www.google.com/maps?q=...&output=embed` iframe with a
+`filter: grayscale(55%)` CSS treatment so its default saturated colors
+don't clash with the muted palette; if you swap the address, update the
+`q=` query param (and the footer/legal pages' Google Maps search link)
+to match.
 
 **Nav only links a subset of sections** (`#rituales`, `#head-spa`,
 `#testimonios`, plus the `#reserva` CTA) — `#manifiesto` and
