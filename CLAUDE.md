@@ -147,6 +147,16 @@ These were intentionally stubbed in and must be swapped for real values:
   the real business before launch, or replace with a real, specific
   credential/training claim — don't leave a vague claim standing in for
   a verifiable one.
+- **Logo**: done — `assets/images/logo.png` is the real full brand lockup
+  (icon + "NAIROBY" wordmark + "Head Spa & Hair Atelier" + a tagline), but
+  it's a large vertical poster (1536×1024), not a compact header asset.
+  Only the icon mark was cropped out (`assets/images/logo-icon.png`,
+  290×300) and placed next to the existing text `.brand-mark` in the
+  header (`.brand-icon`, both `index.html` and the three legal pages) —
+  by explicit user decision, the full lockup isn't used anywhere else on
+  the site. If a differently-cropped or higher-res icon is needed later,
+  re-crop from `logo.png` rather than reusing `logo-icon.png` as a source
+  (it's already a lossy crop).
 
 ## Section map (`index.html`)
 

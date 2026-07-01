@@ -242,9 +242,18 @@ p {
 }
 
 .brand-mark {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
   font-family: var(--font-serif);
   font-size: 1.4rem;
   letter-spacing: 0.18em;
+}
+
+.brand-icon {
+  height: 1.7em;
+  width: auto;
+  display: block;
 }
 
 .brand-mark.small {
