@@ -149,25 +149,27 @@ These were intentionally stubbed in and must be swapped for real values:
   a verifiable one.
 - **Logo**: done — `assets/images/logo.png` is the real full brand lockup
   (icon + "NAIROBY" wordmark + "Head Spa & Hair Atelier" + a tagline) as
-  provided, kept untouched as the source asset.
-  `assets/images/logo-transparent.png` is a derived copy: the flat ivory
-  background is chroma-keyed out to real alpha transparency (the
-  original has none — it's a solid-fill RGB export), and it's cropped
-  tight to the visible content's bounding box (empty top/bottom margin
-  removed, 1536×638 vs. the source's 1536×1024) so the logo reads clearly
-  even at a compact header size. This transparent, cropped version is
-  what's used as the `.brand-mark` logo in the header (`.brand-logo`,
-  `height: 40px` — matched to the original text-only header's height, on
-  all four pages), by explicit user request to show the full lockup
-  rather than just the icon, at the site's original compact header
-  height. If the source `logo.png` is ever replaced, regenerate
-  `logo-transparent.png` from it (chroma-key out the flat background
-  color sampled from a corner pixel, then crop to the non-transparent
-  bounding box) rather than hand-editing the transparent copy directly.
-  Watch header height at intermediate viewport widths (roughly
-  860–1024px) if you enlarge the logo again — a wide logo plus the full
-  nav plus the "Reservar experiencia" button can wrap/crowd in that
-  range before the mobile nav breakpoint kicks in.
+  provided, kept untouched as the source asset (not referenced by any
+  page — kept for reference only). The header's `.brand-mark` logo is an
+  **inline hand-vectorized SVG** reproduction, not the raster file: the
+  icon was traced from a cropped/chroma-keyed version of `logo.png` with
+  `vtracer` (`pip install vtracer`, `colormode='bw'`, high
+  `filter_speckle` to drop antialiasing-edge slivers down to the 2 real
+  path shapes) into flat `--color-brass`-filled paths, and the wordmark /
+  subtitle / tagline are real `<text>` elements using the site's own
+  loaded fonts (Cormorant Garamond / Jost) rather than traced letterforms
+  — this keeps the logo crisp at any zoom/DPI and avoids shipping a large
+  raster image. The same `<svg class="brand-logo" viewBox="0 0 320 138">`
+  markup is duplicated inline in the header of all four HTML pages
+  (matching the existing `.icon-sprite` duplication pattern — there's no
+  shared include mechanism in this repo). Sized via `.brand-logo { height:
+  40px }`, matched to the original text-only header's height. If the
+  source logo is ever redesigned, re-run the same trace-and-rebuild
+  process against the new `logo.png` rather than hand-editing the SVG
+  path data. Watch header height at intermediate viewport widths (roughly
+  860–1024px) if you enlarge the logo — a wide logo plus the full nav
+  plus the "Reservar experiencia" button can wrap/crowd in that range
+  before the mobile nav breakpoint kicks in.
 
 ## Section map (`index.html`)
 
