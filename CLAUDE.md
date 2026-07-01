@@ -6,8 +6,9 @@ Guidance for Claude Code (and other AI assistants) working in this repository.
 
 NAIROBY is a one-page marketing site for a premium "Head Spa & Hair Atelier"
 brand. It's a static HTML/CSS/JS site — no build step, no framework, no
-package manager. The entire site is `index.html` + `css/style.css` +
-`js/main.js`.
+package manager. The main site is `index.html` + `css/style.css` +
+`js/main.js`, plus three standalone legal pages (`legal.html`,
+`privacidad.html`, `cookies.html`) linked from the footer.
 
 The site exists to sell a *feeling* ("Ultra Quiet Luxury": calm, exclusive,
 editorial) rather than to be a conventional salon website. That brief
@@ -18,11 +19,23 @@ copy, colors, or tone.
 ## Stack & structure
 
 ```
-index.html        Single page, all sections, semantic HTML5
-css/style.css      Entire design system: CSS custom properties, layout, responsive rules
-js/main.js          Mobile nav toggle + IntersectionObserver scroll-reveal (vanilla JS, no deps)
-assets/images/      Placeholder dir for real photography (currently empty — see below)
+index.html          Main landing page, all sections, semantic HTML5
+legal.html           Aviso legal (LSSI-CE) — standalone page, own header/footer
+privacidad.html      Política de privacidad (RGPD) — standalone page
+cookies.html         Política de cookies — standalone page
+css/style.css        Entire design system: CSS custom properties, layout, responsive rules
+js/main.js           Mobile nav toggle + IntersectionObserver scroll-reveal (vanilla JS, no deps)
+assets/images/       Placeholder dir for real photography (currently empty — see below)
 ```
+
+The three legal pages share `css/style.css` and `js/main.js` with the main
+page but use a simplified header (brand mark + "Volver al inicio" link,
+no `#primary-nav`/`#nav-toggle` — there's nothing to scroll to on these
+pages) and a `.legal-main`/`.legal-content` content style for long-form
+text. They contain bracketed placeholders (`[RAZÓN SOCIAL]`, `[NIF/CIF]`,
+`[DIRECCIÓN FISCAL COMPLETA]`, `[EMAIL DE CONTACTO]`) that must be filled
+in with the real business's fiscal identity before launch — see "Known
+placeholders" below.
 
 No `package.json`, no bundler, no CSS preprocessor. Open `index.html`
 directly or serve the directory with any static file server:
@@ -97,12 +110,14 @@ inside the single `.ritual-content` div rather than adding more direct
 
 These were intentionally stubbed in and must be swapped for real values:
 
-- **WhatsApp number**: `https://wa.me/34000000000` appears in `index.html`
-  (reserva CTA and footer). Replace with the real number in E.164 format
-  (no `+`, no spaces) in both places.
-- **Phone / address**: footer shows placeholder `+34 000 00 00 00` and
-  generic "Fuerteventura, Islas Canarias" — replace with the real studio
-  address and phone.
+- **WhatsApp number / phone**: done — `https://wa.me/34638808968` and
+  `+34 638 80 89 68` are the real numbers, updated across `index.html`,
+  `legal.html`, `privacidad.html`, and `cookies.html`.
+- **Address**: footer and legal pages still show generic "Fuerteventura,
+  Islas Canarias" and bracketed placeholders (`[RAZÓN SOCIAL]`, `[NIF/CIF]`,
+  `[DIRECCIÓN FISCAL COMPLETA]`, `[EMAIL DE CONTACTO]`) in `legal.html` and
+  `privacidad.html` — these need the real legal/fiscal identity of the
+  business before launch (required for LSSI-CE/RGPD compliance).
 - **Instagram link**: footer points to `https://instagram.com/` — replace
   with the real profile URL.
 - **Images**: `assets/images/` is empty (only a `.gitkeep`). The hero and

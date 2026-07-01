@@ -567,6 +567,48 @@ p {
   margin-top: var(--space-4);
 }
 
+/* --- Legal pages (aviso legal, privacidad, cookies) ------------------------*/
+
+.legal-main {
+  padding-top: var(--space-7);
+  padding-bottom: var(--space-7);
+}
+
+.legal-main .section-title {
+  margin-bottom: var(--space-5);
+}
+
+.legal-content h2 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 1.4rem;
+  margin-top: var(--space-5);
+  margin-bottom: var(--space-2);
+}
+
+.legal-content h2:first-child {
+  margin-top: 0;
+}
+
+.legal-content p {
+  color: var(--color-text-soft);
+}
+
+.legal-content p + p {
+  margin-top: var(--space-2);
+}
+
+.legal-list {
+  margin-top: var(--space-2);
+  padding-left: 1.2em;
+  color: var(--color-text-soft);
+}
+
+.legal-list li {
+  list-style: disc;
+  margin-bottom: var(--space-1);
+}
+
 /* --- Footer ---------------------------------------------------------------*/
 
 .site-footer {
