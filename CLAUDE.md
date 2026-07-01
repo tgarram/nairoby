@@ -111,13 +111,19 @@ inside the single `.ritual-content` div rather than adding more direct
 These were intentionally stubbed in and must be swapped for real values:
 
 - **WhatsApp number / phone**: done — `https://wa.me/34638808968` and
-  `+34 638 80 89 68` are the real numbers, updated across `index.html`,
-  `legal.html`, `privacidad.html`, and `cookies.html`.
-- **Address**: footer and legal pages still show generic "Fuerteventura,
-  Islas Canarias" and bracketed placeholders (`[RAZÓN SOCIAL]`, `[NIF/CIF]`,
-  `[DIRECCIÓN FISCAL COMPLETA]`, `[EMAIL DE CONTACTO]`) in `legal.html` and
-  `privacidad.html` — these need the real legal/fiscal identity of the
-  business before launch (required for LSSI-CE/RGPD compliance).
+  `+34 638 80 89 68` (mobile) plus `+34 828 04 60 16` (landline) are the
+  real numbers, updated across `index.html`, `legal.html`, `privacidad.html`,
+  and `cookies.html`.
+- **Address / email**: done — `Avenida Manuel Velázquez Cabrera, 110,
+  Puerto del Rosario, Fuerteventura` and `nairoby_armas@yahoo.com` are the
+  real values, updated in the footer (all four pages) and in `legal.html` /
+  `privacidad.html`.
+- **Fiscal identity**: `legal.html` and `privacidad.html` still have
+  bracketed placeholders (`[RAZÓN SOCIAL / NOMBRE COMPLETO DEL TITULAR]`,
+  `[NIF/CIF]`) — these need the business's real legal name and tax ID
+  before launch (required for LSSI-CE/RGPD compliance). Address and email
+  in those same two files are already filled in with real values (see
+  above), so only these two fields remain.
 - **Instagram link**: done — `https://www.instagram.com/nairoarmas/` is the
   real profile, updated across `index.html`, `legal.html`, `privacidad.html`,
   and `cookies.html`.
