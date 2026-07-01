@@ -118,8 +118,9 @@ These were intentionally stubbed in and must be swapped for real values:
   `[DIRECCIÓN FISCAL COMPLETA]`, `[EMAIL DE CONTACTO]`) in `legal.html` and
   `privacidad.html` — these need the real legal/fiscal identity of the
   business before launch (required for LSSI-CE/RGPD compliance).
-- **Instagram link**: footer points to `https://instagram.com/` — replace
-  with the real profile URL.
+- **Instagram link**: done — `https://www.instagram.com/nairoarmas/` is the
+  real profile, updated across `index.html`, `legal.html`, `privacidad.html`,
+  and `cookies.html`.
 - **Images**: `assets/images/` is empty (only a `.gitkeep`). The hero and
   Head Spa sections currently use soft CSS gradients as stand-ins
   (`.hero-texture`, `.head-spa-visual`). The brief calls for "imágenes
