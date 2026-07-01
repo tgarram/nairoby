@@ -150,16 +150,24 @@ These were intentionally stubbed in and must be swapped for real values:
 - **Logo**: done — `assets/images/logo.png` is the real full brand lockup
   (icon + "NAIROBY" wordmark + "Head Spa & Hair Atelier" + a tagline) as
   provided, kept untouched as the source asset.
-  `assets/images/logo-transparent.png` is a derived copy with the flat
-  ivory background chroma-keyed out to real alpha transparency (the
-  original has none — it's a solid-fill RGB export); this transparent
-  version is what's used as the `.brand-mark` logo in the header
-  (`.brand-logo`, `height: 128px`, on all four pages), by explicit user
-  request to show the full lockup rather than just the icon. If the
-  source `logo.png` is ever replaced, regenerate
+  `assets/images/logo-transparent.png` is a derived copy: the flat ivory
+  background is chroma-keyed out to real alpha transparency (the
+  original has none — it's a solid-fill RGB export), and it's cropped
+  tight to the visible content's bounding box (empty top/bottom margin
+  removed, 1536×638 vs. the source's 1536×1024) so the logo reads clearly
+  even at a compact header size. This transparent, cropped version is
+  what's used as the `.brand-mark` logo in the header (`.brand-logo`,
+  `height: 40px` — matched to the original text-only header's height, on
+  all four pages), by explicit user request to show the full lockup
+  rather than just the icon, at the site's original compact header
+  height. If the source `logo.png` is ever replaced, regenerate
   `logo-transparent.png` from it (chroma-key out the flat background
-  color sampled from a corner pixel) rather than hand-editing the
-  transparent copy directly.
+  color sampled from a corner pixel, then crop to the non-transparent
+  bounding box) rather than hand-editing the transparent copy directly.
+  Watch header height at intermediate viewport widths (roughly
+  860–1024px) if you enlarge the logo again — a wide logo plus the full
+  nav plus the "Reservar experiencia" button can wrap/crowd in that
+  range before the mobile nav breakpoint kicks in.
 
 ## Section map (`index.html`)
 
