@@ -1,4 +1,4 @@
-/* NAIROBY — mobile nav toggle + slow scroll-reveal */
+/* NAIROBY — mobile nav toggle + slow scroll-reveal + cookie consent banner */
 
 (function () {
   const toggle = document.getElementById("nav-toggle");
@@ -38,5 +38,46 @@
     revealEls.forEach((el) => observer.observe(el));
   } else {
     revealEls.forEach((el) => el.classList.add("is-visible"));
+  }
+
+  const COOKIE_CONSENT_KEY = "nairoby_cookie_consent";
+  const banner = document.getElementById("cookie-banner");
+  const acceptBtn = document.getElementById("cookie-accept");
+  const rejectBtn = document.getElementById("cookie-reject");
+  const manageLink = document.getElementById("cookie-manage");
+
+  function showCookieBanner() {
+    if (banner) banner.classList.add("is-visible");
+  }
+
+  function hideCookieBanner() {
+    if (banner) banner.classList.remove("is-visible");
+  }
+
+  if (banner) {
+    if (!localStorage.getItem(COOKIE_CONSENT_KEY)) {
+      window.setTimeout(showCookieBanner, 600);
+    }
+
+    if (acceptBtn) {
+      acceptBtn.addEventListener("click", () => {
+        localStorage.setItem(COOKIE_CONSENT_KEY, "accepted");
+        hideCookieBanner();
+      });
+    }
+
+    if (rejectBtn) {
+      rejectBtn.addEventListener("click", () => {
+        localStorage.setItem(COOKIE_CONSENT_KEY, "rejected");
+        hideCookieBanner();
+      });
+    }
+  }
+
+  if (manageLink) {
+    manageLink.addEventListener("click", (event) => {
+      event.preventDefault();
+      showCookieBanner();
+    });
   }
 })();

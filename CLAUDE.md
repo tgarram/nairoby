@@ -127,8 +127,6 @@ These were intentionally stubbed in and must be swapped for real values:
   available, swap these gradient blocks for `<img>`/`background-image`
   and keep the soft, uncluttered framing (no harsh crops, no stock-photo
   salon imagery).
-- **Legal pages**: footer "Aviso legal" / "Política de privacidad" links
-  are `#` placeholders.
 - **Hero trust line**: `.hero-trust` ("Formación continua en las técnicas
   de bienestar capilar y color más exigentes de Europa") is a generic,
   intentionally non-specific authority/credibility line added for
@@ -155,13 +153,23 @@ not being in the nav doesn't mean it should be removed from the page.
 
 ## JS behavior (`js/main.js`)
 
-Two independent, dependency-free behaviors:
+Three independent, dependency-free behaviors, shared across all four HTML
+pages (`index.html` and the three legal pages):
 1. **Mobile nav toggle** — `#nav-toggle` button toggles `.is-open` on
    `#primary-nav` and updates `aria-expanded`/`aria-label`; clicking any
-   nav link closes it.
+   nav link closes it. (Only present on `index.html`.)
 2. **Scroll reveal** — every element with `.reveal` fades/slides in once
    via `IntersectionObserver`, falling back to immediately-visible if
    `IntersectionObserver` is unsupported.
+3. **Cookie consent banner** — `#cookie-banner` (present on all four pages,
+   markup right after `</footer>`) is hidden by default and slides up
+   after ~600ms if `localStorage["nairoby_cookie_consent"]` isn't set yet.
+   `#cookie-accept`/`#cookie-reject` store `"accepted"`/`"rejected"` and
+   hide it; the footer's `#cookie-manage` link reopens it at any time. The
+   choice is stored client-side only (`localStorage`), never sent
+   anywhere. If you ever add analytics/marketing scripts, gate them behind
+   `localStorage.getItem("nairoby_cookie_consent") === "accepted"` rather
+   than loading them unconditionally.
 
 Don't introduce a frontend framework or bundler for incremental features —
 this site is intentionally dependency-free given its size.

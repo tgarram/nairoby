@@ -654,6 +654,73 @@ p {
   padding-block: var(--space-3);
 }
 
+/* --- Cookie consent banner --------------------------------------------------*/
+
+.cookie-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+  background: var(--color-carbon);
+  color: rgba(250, 247, 242, 0.85);
+  padding-block: var(--space-3);
+  transform: translateY(100%);
+  transition: transform 0.6s var(--ease-quiet);
+}
+
+.cookie-banner.is-visible {
+  transform: translateY(0);
+}
+
+.cookie-banner-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.cookie-banner p {
+  font-size: 0.85rem;
+  max-width: 60ch;
+}
+
+.cookie-banner a {
+  color: var(--color-ivory);
+}
+
+.cookie-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-shrink: 0;
+}
+
+.cookie-banner .btn-primary {
+  background: var(--color-ivory);
+  color: var(--color-carbon);
+  border-color: var(--color-ivory);
+}
+
+.cookie-banner .btn-primary:hover {
+  background: var(--color-brass);
+  border-color: var(--color-brass);
+  color: var(--color-ivory);
+}
+
+.cookie-banner .link-underline {
+  color: rgba(250, 247, 242, 0.75);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+}
+
+.cookie-banner .link-underline:hover {
+  color: var(--color-ivory);
+}
+
 /* --- Scroll reveal --------------------------------------------------------*/
 
 .reveal {
