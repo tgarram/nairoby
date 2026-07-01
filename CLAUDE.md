@@ -187,13 +187,13 @@ haven't been scrolled past yet.
 
 ## Deployment
 
-`.github/workflows/deploy-pages.yml` deploys the repo root straight to
-GitHub Pages (no build step — it just uploads the static files) on every
-push to `main` or `claude/claude-md-docs-aptw0j`, or via manual
-`workflow_dispatch`. This requires GitHub Pages to be enabled once in the
-repo's **Settings → Pages → Build and deployment → Source: GitHub
-Actions** (a one-time manual setting GitHub doesn't expose via the API
-used here).
+`.github/workflows/static.yml` deploys the repo root straight to GitHub
+Pages (no build step — it just uploads the static files) on every push to
+`claude/claude-md-docs-aptw0j`, or via manual `workflow_dispatch`. GitHub
+Pages is already enabled for this repo (Settings → Pages → Build and
+deployment → Source: GitHub Actions) — this is the workflow GitHub's own
+Pages setup UI generated, so don't add a second parallel deploy workflow;
+if you need to change the deploy behavior, edit this file in place.
 
 ## Git workflow
 
