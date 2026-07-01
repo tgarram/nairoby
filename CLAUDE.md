@@ -157,16 +157,22 @@ section, follow this pattern: `eyebrow` → `section-title` → content,
 wrapped in `.container` (and `.narrow` for text-only sections), with a
 `.reveal` class on elements that should fade in on scroll.
 
-**`#contacto`** is a two-column `.contacto-columns` layout: the
-`mailto:`-based contact form (see "JS behavior" below) on the left,
-location (address + Google Maps link + embedded map iframe) on the
+**`#contacto`** is a two-column `.contacto-columns` layout (capped at
+`max-width: 860px` to keep both columns compact rather than stretching
+to the full container): the `mailto:`-based contact form (name, email,
+phone, message — see "JS behavior" below) on the left, location on the
 right, stacking to one column under 860px. There's no separate email
-card — the form covers that need. The map is a no-API-key
-`https://www.google.com/maps?q=...&output=embed` iframe with a
-`filter: grayscale(55%)` CSS treatment so its default saturated colors
-don't clash with the muted palette; if you swap the address, update the
-`q=` query param (and the footer/legal pages' Google Maps search link)
-to match.
+card and no plain-text address — the form covers "email me," and the
+map covers "where are you." The map (`.contacto-map`, capped at
+`max-width: 320px`) is a no-API-key
+`https://www.google.com/maps?q=...&output=embed` iframe with
+`pointer-events: none` and a heavier `filter` (grayscale + sepia) so its
+default saturated colors read as a warm neutral tone instead of clashing
+with the palette; a `.contacto-map-link` anchor absolutely positioned
+over it (`inset: 0`) makes the whole map clickable through to Google
+Maps, since the iframe itself no longer receives pointer events. If you
+swap the address, update the `q=` query param (and the footer/legal
+pages' Google Maps search link) to match.
 
 **Nav only links a subset of sections** (`#rituales`, `#head-spa`,
 `#testimonios`, plus the `#reserva` CTA) — `#manifiesto` and
@@ -202,7 +208,8 @@ pages (`index.html` and the three legal pages):
    than loading them unconditionally.
 4. **Contact form** — `#contact-form` (in `#contacto`, `index.html` only)
    has no backend: on submit, JS builds a `mailto:nairoby_armas@yahoo.com`
-   link from the name/email/message fields and navigates to it, so the
+   link from the name/email/phone/message fields (phone is optional, only
+   appended to the body if filled in) and navigates to it, so the
    visitor's own mail client sends it. There's no server-side validation or
    storage — don't add a fetch/API call here without first setting up a
    real backend or form service.

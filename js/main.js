@@ -88,9 +88,11 @@
       event.preventDefault();
       const name = contactForm.name.value.trim();
       const email = contactForm.email.value.trim();
+      const phone = contactForm.phone.value.trim();
       const message = contactForm.message.value.trim();
+      const contactLine = phone ? `${email} · ${phone}` : email;
       const subject = encodeURIComponent(`Contacto desde la web — ${name}`);
-      const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+      const body = encodeURIComponent(`${message}\n\n— ${name} (${contactLine})`);
       window.location.href = `mailto:nairoby_armas@yahoo.com?subject=${subject}&body=${body}`;
     });
   }

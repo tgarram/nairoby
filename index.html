@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/style.css?v=1" />
+  <link rel="stylesheet" href="css/style.css?v=2" />
 </head>
 <body>
   <svg aria-hidden="true" class="icon-sprite">
@@ -251,6 +251,10 @@
                 <input type="email" id="cf-email" name="email" autocomplete="email" required />
               </div>
               <div class="form-field">
+                <label for="cf-phone">Teléfono</label>
+                <input type="tel" id="cf-phone" name="phone" autocomplete="tel" />
+              </div>
+              <div class="form-field">
                 <label for="cf-message">Mensaje</label>
                 <textarea id="cf-message" name="message" rows="4" required></textarea>
               </div>
@@ -262,7 +266,6 @@
             <div class="contacto-location">
               <svg class="contacto-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-pin"></use></svg>
               <h3>Ubicación</h3>
-              <p>Avenida Manuel Velázquez Cabrera, 110<br />Puerto del Rosario, Fuerteventura</p>
               <a
                 href="https://www.google.com/maps/search/?api=1&query=Avenida+Manuel+Vel%C3%A1zquez+Cabrera+110%2C+Puerto+del+Rosario%2C+Fuerteventura"
                 class="link-underline"
@@ -277,6 +280,13 @@
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
               ></iframe>
+              <a
+                class="contacto-map-link"
+                href="https://www.google.com/maps/search/?api=1&query=Avenida+Manuel+Vel%C3%A1zquez+Cabrera+110%2C+Puerto+del+Rosario%2C+Fuerteventura"
+                target="_blank"
+                rel="noopener"
+                aria-label="Abrir ubicación en Google Maps"
+              ></a>
             </div>
           </div>
         </div>
@@ -355,6 +365,6 @@
   <a class="whatsapp-float" href="https://wa.me/34638808968?text=Hola%20NAIROBY%2C%20me%20gustar%C3%ADa%20reservar%20una%20experiencia" target="_blank" rel="noopener" aria-label="Reservar por WhatsApp">
     <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
   </a>
-  <script src="js/main.js?v=1"></script>
+  <script src="js/main.js?v=2"></script>
 </body>
 </html>
