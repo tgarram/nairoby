@@ -157,14 +157,19 @@ section, follow this pattern: `eyebrow` → `section-title` → content,
 wrapped in `.container` (and `.narrow` for text-only sections), with a
 `.reveal` class on elements that should fade in on scroll.
 
-**`#contacto`** is a two-column `.contacto-columns` layout (capped at
-`max-width: 860px` to keep both columns compact rather than stretching
-to the full container): the `mailto:`-based contact form (name, email,
-phone, message — see "JS behavior" below) on the left, location on the
-right, stacking to one column under 860px. There's no separate email
-card and no plain-text address — the form covers "email me," and the
-map covers "where are you." The map (`.contacto-map`, capped at
-`max-width: 320px`) is a no-API-key
+**`#contacto`** is two equal-height `.contacto-card` cards (thin border,
+`--color-ivory` fill) inside a `.contacto-columns` grid capped at
+`max-width: 860px`, each with an icon + `h3` header for symmetry:
+**"Escríbenos"** (mail icon) holds the `mailto:`-based contact form
+(name, email, phone, message — see "JS behavior" below); **"Visítanos"**
+(pin icon) holds the Google Maps link and embedded map. `align-items:
+stretch` on the grid plus `display: flex` on each card means the shorter
+card's content (the map, `flex: 1`) stretches to match the taller one
+(usually the form) — don't reintroduce a fixed height or `aspect-ratio`
+on `.contacto-map` or the two cards will drift out of sync again. Columns
+stack to one column under 860px. There's no separate email card and no
+plain-text address — the form covers "email me," and the map covers
+"where are you." The map is a no-API-key
 `https://www.google.com/maps?q=...&output=embed` iframe with
 `pointer-events: none` and a heavier `filter` (grayscale + sepia) so its
 default saturated colors read as a warm neutral tone instead of clashing
