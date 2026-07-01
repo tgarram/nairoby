@@ -648,10 +648,6 @@ p {
   font-size: 1.2rem;
 }
 
-.contacto-map-cta {
-  margin-bottom: var(--space-3);
-}
-
 .contacto-map {
   position: relative;
   flex: 1;
@@ -671,6 +667,25 @@ p {
 .contacto-map-link {
   position: absolute;
   inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: var(--space-2);
+}
+
+.contacto-map-badge {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-carbon);
+  background: rgba(250, 247, 242, 0.9);
+  padding: 0.5em 0.9em;
+  border-radius: 999px;
+  transition: background-color 0.3s var(--ease-quiet);
+}
+
+.contacto-map-link:hover .contacto-map-badge {
+  background: var(--color-ivory);
 }
 
 .contact-form {

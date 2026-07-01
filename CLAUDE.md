@@ -175,8 +175,13 @@ plain-text address — the form covers "email me," and the map covers
 default saturated colors read as a warm neutral tone instead of clashing
 with the palette; a `.contacto-map-link` anchor absolutely positioned
 over it (`inset: 0`) makes the whole map clickable through to Google
-Maps, since the iframe itself no longer receives pointer events. If you
-swap the address, update the `q=` query param (and the footer/legal
+Maps, since the iframe itself no longer receives pointer events. The
+"Ver en Google Maps" affordance is a `.contacto-map-badge` pill nested
+inside that same overlay link, positioned bottom-right via flexbox
+(`align-items: flex-end; justify-content: flex-end`) — it's part of the
+map card, not a separate text link above it; don't split it back out
+into a standalone `<a>` before the map. If you swap the address, update
+the `q=` query param (and the footer/legal
 pages' Google Maps search link) to match.
 
 **Nav only links a subset of sections** (`#rituales`, `#head-spa`,
