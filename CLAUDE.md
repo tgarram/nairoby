@@ -58,10 +58,25 @@ this is a recurring motif, keep it consistent on any new label-style text.
 explicitly calls for "animaciones suaves y lentas" — don't add snappy/fast
 transitions, aggressive carousels, or commercial-style banners.
 
-**Components**: `.btn-primary` (solid carbon, pill) and `.btn-ghost`
-(outlined) are the only two button styles. Reuse `.eyebrow`,
-`.section-title`, `.ritual-card`, `.step`, `.testimonial` classes for new
-content blocks rather than inventing new ones.
+**Components**: `.btn-primary` (solid carbon, pill) is the **only** solid
+button style, reserved for the one dominant conversion action per section
+(booking). Secondary/lower-priority actions ("Ver rituales", "Solicitar
+diagnóstico") use `.link-underline` — a plain text link with an animated
+underline reveal on hover — never a second button style. This is a
+deliberate neuromarketing choice (single clear CTA per section, reduced
+decision friction); don't reintroduce an outlined/ghost button variant.
+Reuse `.eyebrow`, `.section-title`, `.ritual-item`/`.ritual-content`,
+`.step`, `.testimonial` classes for new content blocks rather than
+inventing new ones.
+
+**Ritual/service list markup**: each `.ritual-item` is a 2-column CSS Grid
+(`3rem 1fr`: index number, content) — the index (`.ritual-index`) and the
+title+text must be its **only two** flow children. If you add more direct
+children (e.g. an icon or a tag), grid auto-placement will wrap the extra
+element onto a new implicit row split across both columns instead of
+flowing it into the content column — wrap title+text (and anything else)
+inside the single `.ritual-content` div rather than adding more direct
+`<li>` children.
 
 ## Copy & tone conventions
 
@@ -99,15 +114,29 @@ These were intentionally stubbed in and must be swapped for real values:
   salon imagery).
 - **Legal pages**: footer "Aviso legal" / "Política de privacidad" links
   are `#` placeholders.
+- **Hero trust line**: `.hero-trust` ("Formación continua en las técnicas
+  de bienestar capilar y color más exigentes de Europa") is a generic,
+  intentionally non-specific authority/credibility line added for
+  neuromarketing purposes (soft authority cue). Confirm it's accurate for
+  the real business before launch, or replace with a real, specific
+  credential/training claim — don't leave a vague claim standing in for
+  a verifiable one.
 
 ## Section map (`index.html`)
 
-In document order, each section is a `<section>` with a matching `id`
-used by nav anchors: `#hero`, `#manifiesto`, `#rituales`, `#experiencia`,
-`#head-spa`, `#testimonios`, `#reserva`, plus the footer. If you add a new
-section, follow this pattern: `eyebrow` → `section-title` → content, wrapped
-in `.container` (and `.narrow` for text-only sections), with a `.reveal`
+In document order, each section is a `<section>` with a matching `id`:
+`#hero`, `#manifiesto`, `#rituales`, `#experiencia`, `#head-spa`,
+`#testimonios`, `#reserva`, plus the footer. If you add a new section,
+follow this pattern: `eyebrow` → `section-title` → content, wrapped in
+`.container` (and `.narrow` for text-only sections), with a `.reveal`
 class on elements that should fade in on scroll.
+
+**Nav only links a subset of sections** (`#rituales`, `#head-spa`,
+`#testimonios`, plus the `#reserva` CTA) — `#manifiesto` and
+`#experiencia` are intentionally left out of `#primary-nav` to keep the
+nav to 3-4 items (research-backed: more nav items dilute attention on
+luxury sites). Don't restore a full 1:1 nav-to-section mapping; a section
+not being in the nav doesn't mean it should be removed from the page.
 
 ## JS behavior (`js/main.js`)
 
