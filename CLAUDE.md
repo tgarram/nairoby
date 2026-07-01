@@ -121,13 +121,17 @@ These were intentionally stubbed in and must be swapped for real values:
 - **Instagram link**: done — `https://www.instagram.com/nairoarmas/` is the
   real profile, updated across `index.html`, `legal.html`, `privacidad.html`,
   and `cookies.html`.
-- **Images**: `assets/images/` is empty (only a `.gitkeep`). The hero and
-  Head Spa sections currently use soft CSS gradients as stand-ins
-  (`.hero-texture`, `.head-spa-visual`). The brief calls for "imágenes
-  grandes, suaves, con estética editorial" — when real photography is
-  available, swap these gradient blocks for `<img>`/`background-image`
-  and keep the soft, uncluttered framing (no harsh crops, no stock-photo
-  salon imagery).
+- **Hero image**: done — `assets/images/hero_medic.png` is a real editorial
+  photo (Head Spa basin, warm/dark tones), used as the `.hero-texture`
+  background with a left-to-right dark gradient overlay so the light
+  (`--color-ivory`) hero text stays legible. This flipped the hero from a
+  light section to a dark one — see "Hero is a dark section" below before
+  editing hero styles or copy colors.
+- **Head Spa section image**: `.head-spa-visual` still uses a soft CSS
+  gradient stand-in — the brief calls for "imágenes grandes, suaves, con
+  estética editorial"; swap for `<img>`/`background-image` when a second
+  photo is available, keeping the soft, uncluttered framing (no harsh
+  crops, no stock-photo salon imagery).
 - **Hero trust line**: `.hero-trust` ("Formación continua en las técnicas
   de bienestar capilar y color más exigentes de Europa") is a generic,
   intentionally non-specific authority/credibility line added for
@@ -174,6 +178,21 @@ pages (`index.html` and the three legal pages):
 
 Don't introduce a frontend framework or bundler for incremental features —
 this site is intentionally dependency-free given its size.
+
+## The hero is a dark section (photo background)
+
+Unlike the rest of the page (light ivory/marfil backgrounds, dark carbon
+text), `#hero` renders a photo (`hero_medic.png`) through `.hero-texture`
+with a dark gradient scrim, so its text is light-on-dark by design:
+`.hero-title`, `.hero-claim`, `.hero-text` are hard-coded to light colors
+(not inherited from the global dark `--color-text`), and `.hero
+.link-underline` / `.hero .btn-primary` have their own overrides (inverted
+button: ivory background, carbon text) so they stay visible against the
+photo. `.eyebrow` and `.hero-trust` already use `--color-brass`, which
+reads fine on both light and dark backgrounds (same as the footer), so
+they don't need an override. If you add new text or controls inside
+`#hero`, give them an explicit light color / `.hero`-scoped override
+rather than relying on the global (dark-on-light) defaults.
 
 ## A layout pitfall already hit once — avoid repeating it
 
