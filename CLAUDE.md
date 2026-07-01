@@ -127,11 +127,13 @@ These were intentionally stubbed in and must be swapped for real values:
   (`--color-ivory`) hero text stays legible. This flipped the hero from a
   light section to a dark one — see "Hero is a dark section" below before
   editing hero styles or copy colors.
-- **Head Spa section image**: `.head-spa-visual` still uses a soft CSS
-  gradient stand-in — the brief calls for "imágenes grandes, suaves, con
-  estética editorial"; swap for `<img>`/`background-image` when a second
-  photo is available, keeping the soft, uncluttered framing (no harsh
-  crops, no stock-photo salon imagery).
+- **Head Spa section image**: done — `assets/images/hero_medic_01.png` (a
+  companion shot to the hero photo) is the `.head-spa-visual`
+  `background-image`, `background-size: cover` with `background-position:
+  38% 55%` chosen to keep the shower head, face, and hands inside the
+  cropped 4:5 portrait frame. If you swap this photo, re-check that
+  position — a different composition will likely need different crop
+  coordinates.
 - **Hero trust line**: `.hero-trust` ("Formación continua en las técnicas
   de bienestar capilar y color más exigentes de Europa") is a generic,
   intentionally non-specific authority/credibility line added for

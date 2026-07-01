@@ -520,9 +520,10 @@ p {
 .head-spa-visual {
   aspect-ratio: 4 / 5;
   border-radius: 4px;
-  background:
-    radial-gradient(70% 60% at 30% 20%, rgba(255, 255, 255, 0.6), transparent 60%),
-    linear-gradient(160deg, var(--color-beige-piedra), var(--color-taupe));
+  background-image: url("../assets/images/hero_medic_01.png");
+  background-size: cover;
+  background-position: 38% 55%;
+  background-repeat: no-repeat;
 }
 
 .head-spa-copy h2 {
