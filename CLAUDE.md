@@ -152,10 +152,14 @@ These were intentionally stubbed in and must be swapped for real values:
 
 In document order, each section is a `<section>` with a matching `id`:
 `#hero`, `#manifiesto`, `#rituales`, `#experiencia`, `#head-spa`,
-`#testimonios`, `#reserva`, plus the footer. If you add a new section,
-follow this pattern: `eyebrow` → `section-title` → content, wrapped in
-`.container` (and `.narrow` for text-only sections), with a `.reveal`
-class on elements that should fade in on scroll.
+`#testimonios`, `#reserva`, `#contacto`, plus the footer. If you add a new
+section, follow this pattern: `eyebrow` → `section-title` → content,
+wrapped in `.container` (and `.narrow` for text-only sections), with a
+`.reveal` class on elements that should fade in on scroll.
+
+**`#contacto`** holds the email/location cards plus a `mailto:`-based
+contact form (see "JS behavior" below) — it's the one section allowed a
+form element, since the rest of the site funnels to WhatsApp.
 
 **Nav only links a subset of sections** (`#rituales`, `#head-spa`,
 `#testimonios`, plus the `#reserva` CTA) — `#manifiesto` and
@@ -166,11 +170,17 @@ not being in the nav doesn't mean it should be removed from the page.
 
 ## JS behavior (`js/main.js`)
 
-Three independent, dependency-free behaviors, shared across all four HTML
+Four independent, dependency-free behaviors, shared across all four HTML
 pages (`index.html` and the three legal pages):
 1. **Mobile nav toggle** — `#nav-toggle` button toggles `.is-open` on
    `#primary-nav` and updates `aria-expanded`/`aria-label`; clicking any
-   nav link closes it. (Only present on `index.html`.)
+   nav link closes it. (Only present on `index.html`.) `.nav-toggle` has
+   `z-index: 20` and the open `.primary-nav` has `z-index: 10` (both inside
+   `.site-header`'s own stacking context) so the toggle button always stays
+   clickable above the open drawer — without this, the drawer (a
+   `position: fixed` element) paints over the `position: static` toggle
+   button and the menu becomes impossible to close. If you restyle either
+   element, keep the toggle's z-index higher than the drawer's.
 2. **Scroll reveal** — every element with `.reveal` fades/slides in once
    via `IntersectionObserver`, falling back to immediately-visible if
    `IntersectionObserver` is unsupported.
@@ -183,6 +193,12 @@ pages (`index.html` and the three legal pages):
    anywhere. If you ever add analytics/marketing scripts, gate them behind
    `localStorage.getItem("nairoby_cookie_consent") === "accepted"` rather
    than loading them unconditionally.
+4. **Contact form** — `#contact-form` (in `#contacto`, `index.html` only)
+   has no backend: on submit, JS builds a `mailto:nairoby_armas@yahoo.com`
+   link from the name/email/message fields and navigates to it, so the
+   visitor's own mail client sends it. There's no server-side validation or
+   storage — don't add a fetch/API call here without first setting up a
+   real backend or form service.
 
 Don't introduce a frontend framework or bundler for incremental features —
 this site is intentionally dependency-free given its size.
