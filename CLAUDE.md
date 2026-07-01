@@ -154,7 +154,7 @@ These were intentionally stubbed in and must be swapped for real values:
   ivory background chroma-keyed out to real alpha transparency (the
   original has none — it's a solid-fill RGB export); this transparent
   version is what's used as the `.brand-mark` logo in the header
-  (`.brand-logo`, `height: 84px`, on all four pages), by explicit user
+  (`.brand-logo`, `height: 128px`, on all four pages), by explicit user
   request to show the full lockup rather than just the icon. If the
   source `logo.png` is ever replaced, regenerate
   `logo-transparent.png` from it (chroma-key out the flat background
