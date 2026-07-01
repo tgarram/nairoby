@@ -269,6 +269,18 @@ deployment → Source: GitHub Actions) — this is the workflow GitHub's own
 Pages setup UI generated, so don't add a second parallel deploy workflow;
 if you need to change the deploy behavior, edit this file in place.
 
+**Cache-busting**: `css/style.css` and `js/main.js` are referenced with a
+`?v=1` query string in all four HTML files (e.g.
+`<link rel="stylesheet" href="css/style.css?v=1" />`). GitHub Pages/CDNs
+and browsers cache these static assets aggressively by URL, so pushing a
+CSS/JS change alone can leave visitors seeing a stale stylesheet even
+after a successful deploy. **Whenever you edit `css/style.css` or
+`js/main.js`, bump `?v=1` to `?v=2` (etc.) in all four HTML files** so the
+new deploy gets a fresh URL and isn't served from cache. `index.html`,
+`legal.html`, `privacidad.html`, and `cookies.html` themselves don't need
+this — HTML documents aren't cached the same way and always reflect the
+latest deploy.
+
 ## Git workflow
 
 Standard branch + commit + push; no other release process or CI is
